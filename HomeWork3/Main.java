@@ -1,11 +1,10 @@
 package JavaExceptions.HomeWork3;
 
 import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+// import java.nio.file.Path;
+// import java.nio.file.Paths;
 import java.util.*;
 
 public class Main {
@@ -17,10 +16,11 @@ public class Main {
             throw new WrongNumberOfValues();
         }
         String line = extractFIO(string) + " " + extractDate(string) + " " + extractTelephone(string) + " " + extractGender(string) + "\n";        
-        String fileName = line.split(" ")[0];
-        Path path = Paths.get(fileName + ".txt");
+        String fileName = line.split(" ")[0] + ".txt";
+        // Path path = Paths.get(fileName + ".txt");
+
         try{
-            wLine(path, line);
+            wLine(fileName, line);
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -163,9 +163,9 @@ public class Main {
         return count;        
     }
 
-    public static void wLine (Path fileName, String data) throws IOException {
-        try (BufferedWriter out = Files.newBufferedWriter(fileName, StandardOpenOption.APPEND)){
-            out.append(data);
+    public static void wLine (String fileName, String data) throws IOException {
+        try (BufferedWriter out = new BufferedWriter(new FileWriter(fileName, true))){
+            out.write(data);
         }
     }
 }
