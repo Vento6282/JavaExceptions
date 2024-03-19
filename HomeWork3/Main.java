@@ -3,8 +3,6 @@ package JavaExceptions.HomeWork3;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-// import java.nio.file.Path;
-// import java.nio.file.Paths;
 import java.util.*;
 
 public class Main {
@@ -17,8 +15,6 @@ public class Main {
         }
         String line = extractFIO(string) + " " + extractDate(string) + " " + extractTelephone(string) + " " + extractGender(string) + "\n";        
         String fileName = line.split(" ")[0] + ".txt";
-        // Path path = Paths.get(fileName + ".txt");
-
         try{
             wLine(fileName, line);
         } catch (IOException e){
