@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Введите фамилию имя отчество дату рождения номер телефона пол:\n");
+        System.out.println("Введите фамилию имя отчество дату рождения номер телефона пол:");
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> string = new ArrayList<>(Arrays.asList(scanner.nextLine().split(" ")));
         if (string.size() != 6){
